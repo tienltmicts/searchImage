@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Tìm kiếm ảnh món ăn</h1>
+
+<form action="{% url 'search'%}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+  <label for="img">Select image:</label>
+  {{form.id_selfie}}
+  <button type="submit"  >Search</button>
+</form>
+<p>Query</p>
+<img style="width: 200px; height: 200px;" src="{{query.id_selfie.url}}">
+<p>Results </p>
+{%for i in result %}
+     <img style="width: 200px; height: 200px;" src="{{i}}">
+{% endfor %}
+
+</body>
+</html>
